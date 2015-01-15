@@ -1,0 +1,251 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Master.master.cs" Inherits="IntranetBettaInformatica.Web.Master" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<%@ Register Assembly="Ext.Net" Namespace="Ext.Net" TagPrefix="ext" %>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Intranet BettaInformatica</title>
+    <style type="text/css">
+        .btn-panel table
+        {
+            float: right;
+        }
+    </style>
+    <script type="text/javascript">
+        function renderToolTip() {
+            Ext.QuickTips.init();
+           
+            var tltMensagensPerfil = Ext.getCmp('ctl00_tltMensagensPerfil');
+            var btnMensagensPerfil = Ext.getCmp('ctl00_btnMensagensPerfil');
+            if (tltMensagensPerfil && tltMensagensPerfil.html != '0')
+                tltMensagensPerfil.show();
+
+            var tltNoticiasPerfil = Ext.getCmp('ctl00_tltNoticiasPerfil');
+            var btnNoticiasPerfil = Ext.getCmp('ctl00_btnNoticiasPerfil');
+            if (tltNoticiasPerfil && tltNoticiasPerfil.html != '0')
+                tltNoticiasPerfil.show();
+
+            var tltPesquisasPerfil = Ext.getCmp('ctl00_tltPesquisasPerfil');
+            var btnPesquisasPerfil = Ext.getCmp('ctl00_btnPesquisasPerfil');
+            if (tltPesquisasPerfil && tltPesquisasPerfil.html != '0')
+                tltPesquisasPerfil.show();
+        }
+
+        function fnVisualizarPerfil(dv, nodes) {
+			Ext.net.DirectMethods.OpenPerfilUsuario(dv.getSelectedNodes()[0].id);
+        }
+        
+    </script>
+    <asp:ContentPlaceHolder ID="cph_head" runat="server">
+		
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <ext:ResourceManager ID="ResourceManager1" runat="server">
+        </ext:ResourceManager>
+        <ext:Viewport ID="Viewport1" runat="server" Layout="border">
+            <Items>
+                <ext:Panel ID="pnlNorth" runat="server" Region="North" Height="121" Border="false"
+                    Padding="0" Collapsible="true" CollapseMode="Mini" Frame="true">
+                    <Items>
+                        <ext:Panel runat="server" Border="false" Width="150" StyleSpec="float:left;">
+                            <Items>
+                                <ext:ImageButton ID="imgLogo" runat="server" Height="80" OnClientClick="window.location = 'Default.aspx';"
+                                    ToolTip="Home">
+                                </ext:ImageButton>
+                            </Items>
+                        </ext:Panel>
+                        <ext:Panel runat="server" Border="false" Layout="anchor" AnchorHorizontal="-140">
+                            <Items>
+                                <ext:Toolbar ID="toolbarMenu" runat="server" MinWidth="150" Height="30">
+                                    <Items>
+                                        <ext:ToolbarFill>
+                                        </ext:ToolbarFill>
+                                        <ext:Button runat="server" ID="btnPonto" Text="Registrar Ponto" Icon="ClockStart">
+                                        </ext:Button>
+                                        <ext:SplitButton ID="btnUsuarioLogado" runat="server" Icon="User" Visible="false"
+                                            PostBackUrl="Login.aspx">
+                                            <Menu>
+                                                <ext:Menu runat="server">
+                                                    <Items>
+                                                        <ext:MenuItem runat="server" Text="Meu Perfil" Icon="TextfieldKey">
+                                                            <Listeners>
+                                                                <Click Handler="window.location = 'MeuPerfil.aspx';" />
+                                                            </Listeners>
+                                                        </ext:MenuItem>
+                                                        <ext:MenuItem runat="server" Text="Sair" Icon="ControlPower">
+                                                            <Listeners>
+                                                                <Click Handler="window.location = 'Logoff.aspx';" />
+                                                            </Listeners>
+                                                        </ext:MenuItem>
+                                                    </Items>
+                                                </ext:Menu>
+                                            </Menu>
+                                            <Listeners>
+                                                <Click Handler="window.location = 'Login.aspx';" />
+                                            </Listeners>
+                                        </ext:SplitButton>
+                                        <ext:Button ID="btnTemas" runat="server" Text="Temas" Icon="Palette">
+                                        </ext:Button>
+                                    </Items>
+                                </ext:Toolbar>
+                                <ext:Panel runat="server" AnchorHorizontal="100%" Height="55" Border="false" Layout="column">
+                                    <Items>
+                                        <ext:Panel runat="server" Height="55" Border="false" ColumnWidth="0.5">
+                                            <Items>
+                                                <ext:ButtonGroup ID="btnGroupFavoritos" runat="server" Title="<img src='Imagens/star.png' style='float:left;margin-right:5px;margin-top:1px;' /> Favoritos &nbsp;&nbsp;">
+                                                    <Items>
+                                                    </Items>
+                                                    <Plugins>
+                                                        <ext:BottomTitle runat="server" />
+                                                    </Plugins>
+                                                </ext:ButtonGroup>
+                                            </Items>
+                                        </ext:Panel>
+                                        <ext:Panel ID="pnlProjetos" runat="server" Height="55" Border="false" ColumnWidth="0.5"
+                                            BaseCls="x-plain" Cls="btn-panel">
+                                            <Items>
+                                            </Items>
+                                        </ext:Panel>
+                                    </Items>
+                                </ext:Panel>
+                            </Items>
+                        </ext:Panel>
+                    </Items>
+                </ext:Panel>
+                <ext:Panel ID="Panel2" runat="server" Border="false" Frame="true" Region="Center"
+                    AnchorHorizontal="100%">
+                    <Content>
+                        <asp:ContentPlaceHolder ID="cph_body" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </Content>
+                </ext:Panel>
+                <ext:Panel ID="pnlPerfilCollapse" runat="server" Title="Usuário" Region="West" Split="true"
+                    Collapsible="true" MinWidth="150" CollapseMode="Mini" Width="150" MarginsSummary="31 0 5 5"
+                    Border="false" CMarginsSummary="31 5 5 5">
+                    <Listeners>
+                        <BeforeCollapse Handler="Ext.net.DirectMethods.Collapse_Click(1);" />
+                        <BeforeExpand Handler="Ext.net.DirectMethods.Collapse_Click(0);" />
+                    </Listeners>
+                    <Items>
+                        <ext:Panel runat="server" ID="pnlImagemPerfil" AnchorHorizontal="100%">
+                            <Items>
+                                <ext:Image runat="server" ID="imgPerfil" Width="150" Height="150">
+                                </ext:Image>
+                            </Items>
+                            <BottomBar>
+                                <ext:Toolbar runat="server">
+                                    <Content>
+                                        <ext:Button ID="btnMensagensPerfil" runat="server" Icon="Email" Text="Mensagens">
+                                            <ToolTips>
+                                                <ext:ToolTip runat="server" ID="tltMensagensPerfil" Anchor="left" AutoHide="false"></ext:ToolTip>
+                                            </ToolTips>
+                                        </ext:Button>
+                                        <ext:Button ID="btnNoticiasPerfil" runat="server" Icon="LightningGo" Text="Notícias">
+                                            <ToolTips>
+                                                <ext:ToolTip runat="server" ID="tltNoticiasPerfil" Anchor="left" AutoHide="false"></ext:ToolTip>
+                                            </ToolTips>
+                                        </ext:Button>
+                                        <ext:Button ID="btnPesquisasPerfil" runat="server" Icon="Outline" Text="Pesquisas">
+                                            <ToolTips>
+                                                <ext:ToolTip runat="server" ID="tltPesquisasPerfil" Anchor="left" AutoHide="false"></ext:ToolTip>
+                                            </ToolTips>
+                                        </ext:Button>
+                                    </Content>
+                                </ext:Toolbar>
+                            </BottomBar>
+                        </ext:Panel>
+                    </Items>
+                </ext:Panel>
+            </Items>
+        </ext:Viewport>
+    </div>
+    <ext:Window runat="server" ID="winLoginMaster" Layout="Form" Border="false" Title="Login"
+        Icon="Key" Hidden="true" Width="350" Height="150" Padding="5" Closable="false">
+        <Items>
+            <ext:FormPanel runat="server" ID="frmLoginMaster" Border="false" Frame="true" AnchorHorizontal="100%"
+                AnchorVertical="100%">
+                <Items>
+                    <ext:TextField runat="server" ID="txtLoginMaster" FieldLabel="Login" AllowBlank="false"
+                        AnchorHorizontal="92%" MsgTarget="Side">
+                    </ext:TextField>
+                    <ext:TextField runat="server" ID="txtSenhaMaster" FieldLabel="Senha" InputType="Password"
+                        AllowBlank="false" AnchorHorizontal="92%" MsgTarget="Side">
+                    </ext:TextField>
+                </Items>
+            </ext:FormPanel>
+        </Items>
+        <Buttons>
+            <ext:Button ID="btnLoginMaster" runat="server" Text="Logar" Icon="KeyGo" FormBind="true">
+                <Listeners>
+                    <Click Handler="if(#{frmLoginMaster}.validate()) Ext.net.DirectMethods.Login_Click();" />
+                </Listeners>
+            </ext:Button>
+            <ext:Button runat="server" Text="Cancelar" Icon="Cancel">
+                <Listeners>
+                    <Click Handler="window.location = 'Login.aspx';" />
+                </Listeners>
+            </ext:Button>
+        </Buttons>
+        <KeyMap>
+            <ext:KeyBinding>
+                <Keys>
+                    <ext:Key Code="ENTER" />
+                </Keys>
+                <Listeners>
+                    <Event Handler="#{btnLoginMaster}.fireListener('click');" />
+                </Listeners>
+            </ext:KeyBinding>
+        </KeyMap>
+    </ext:Window>
+	<ext:Window runat="server" ID="winChartOrganizacao" Icon="ChartOrganisation" Layout="FitLayout" CloseAction="Hide" AutoScroll="true" AutoRender="false" BodyStyle="padding:10px;"
+        Modal="true" Hidden="true" Minimizable="false" Maximizable="true" Width="800" Height="600" Title="Gráfico Organizacional da Empresa">
+		<AutoLoad Mode="IFrame" Url="ChartOrganizacao.aspx" ShowMask="true"></AutoLoad>
+        <Buttons>
+            <ext:Button runat="server" Text="Fechar">
+                <Listeners>
+                    <Click Handler="#{winChartOrganizacao}.hide();" />
+                </Listeners>
+            </ext:Button>
+        </Buttons>
+    </ext:Window>
+	<ext:Window runat="server" ID="winPerfilUsuario" Icon="User" Layout="FitLayout" CloseAction="Hide" AutoRender="false" BodyStyle="padding:10px;"
+        Modal="true" Hidden="true" Minimizable="false" Maximizable="true" MinWidth="600" Width="600" Height="400" Title="Perfil">
+		<AutoLoad Mode="IFrame" Url="VisualizarUsuario.aspx" ShowMask="true"></AutoLoad>
+        <Buttons>
+            <ext:Button runat="server" Text="Fechar">
+                <Listeners>
+                    <Click Handler="#{winPerfilUsuario}.hide();" />
+                </Listeners>
+            </ext:Button>
+        </Buttons>
+    </ext:Window>
+	<ext:Window runat="server" ID="winHtmlNoticia" Icon="Html" Layout="FitLayout" CloseAction="Hide" AutoScroll="true" BodyStyle="padding:10px;" Frame="true" Border="false"
+        Modal="true" Hidden="true" Minimizable="false" Maximizable="true" Width="800" Height="600" Title="Notícia">
+		<Buttons>
+            <ext:Button runat="server" Text="Fechar">
+                <Listeners>
+                    <Click Handler="#{winHtmlNoticia}.hide();" />
+                </Listeners>
+            </ext:Button>
+        </Buttons>
+    </ext:Window>
+	</form>
+    <script type="text/javascript">
+    	Ext.onReady(function () {
+    		renderToolTip();
+    		if (Ext.MessageBox) {
+    			Ext.MessageBox.buttonText = {
+    				ok: "OK",
+    				cancel: "Cancelar",
+    				yes: "Sim",
+    				no: "N&atilde;o"
+    			};
+    		}
+		});
+
+    </script>
+</body>
+</html>

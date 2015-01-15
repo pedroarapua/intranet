@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{985C4EFD-84BC-4671-908B-478FEA138228}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>IntranetBettaInformatica.Entities</RootNamespace>
+    <AssemblyName>IntranetBettaInformatica.Entities</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FluentNHibernate, Version=1.1.0.685, Culture=neutral, PublicKeyToken=8aa435e3cb308880, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\dlls\FluentNHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="NHibernate, Version=2.1.2.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\dlls\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.ByteCode.Castle, Version=2.1.2.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\dlls\NHibernate.ByteCode.Castle.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Entities\AcaoVO.cs" />
+    <Compile Include="Entities\ConfiguracoesSistemaVO.cs" />
+    <Compile Include="Entities\ComentarioFotoVO.cs" />
+    <Compile Include="Entities\ComentarioVideoVO.cs" />
+    <Compile Include="Entities\ComputadorVO.cs" />
+    <Compile Include="Entities\ArquivoVO.cs" />
+    <Compile Include="Entities\BaseConhecimentoVO.cs" />
+    <Compile Include="Entities\CertificacaoUsuarioVO.cs" />
+    <Compile Include="Entities\UsuarioBaseConhecimentoVO.cs" />
+    <Compile Include="Entities\VagaEmpregoCurriculoVO.cs" />
+    <Compile Include="Entities\VagaEmpregoVO.cs" />
+    <Compile Include="Entities\TopicoBaseConhecimentoVO.cs" />
+    <Compile Include="Entities\ItemManualColaboradorVO.cs" />
+    <Compile Include="Entities\TopicoManualColaboradorVO.cs" />
+    <Compile Include="Entities\EmailVO.cs" />
+    <Compile Include="Entities\ExtensaoArquivoVO.cs" />
+    <Compile Include="Entities\FuncaoVO.cs" />
+    <Compile Include="Entities\MenuPaginaUsuarioVO.cs" />
+    <Compile Include="Entities\NoticiaVO.cs" />
+    <Compile Include="Entities\ReuniaoVO.cs" />
+    <Compile Include="Entities\SalaVO.cs" />
+    <Compile Include="Entities\TipoArquivoVO.cs" />
+    <Compile Include="Entities\UsuarioMensagemVO.cs" />
+    <Compile Include="Entities\MensagemVO.cs" />
+    <Compile Include="Entities\RespostaVO.cs" />
+    <Compile Include="Entities\PesquisaOpiniaoVO.cs" />
+    <Compile Include="Entities\VideoVO.cs" />
+    <Compile Include="Entities\PontoUsuarioVO.cs" />
+    <Compile Include="Entities\PeriodoVO.cs" />
+    <Compile Include="Entities\FotoVO.cs" />
+    <Compile Include="Entities\GaleriaVO.cs" />
+    <Compile Include="Entities\UsuarioTelefoneVO.cs" />
+    <Compile Include="Entities\EmpresaSetorVO.cs" />
+    <Compile Include="Entities\EmpresaTelefoneVO.cs" />
+    <Compile Include="Entities\EmpresaVO.cs" />
+    <Compile Include="Entities\TipoEmpresaVO.cs" />
+    <Compile Include="Entities\MenuPaginaVO.cs" />
+    <Compile Include="Entities\PerfilAcessoVO.cs" />
+    <Compile Include="Entities\EstadoVO.cs" />
+    <Compile Include="Entities\UsuarioVO.cs" />
+    <Compile Include="Entities\SistemaVO.cs" />
+    <Compile Include="Entities\EntidadeBaseVO.cs" />
+    <Compile Include="Entities\TemaVO.cs" />
+    <Compile Include="Enumertators\ETipoAcao.cs" />
+    <Compile Include="Enumertators\ETipoExtensao.cs" />
+    <Compile Include="Mappings\AcaoMap.cs" />
+    <Compile Include="Mappings\ConfiguracoesSistemaMap.cs" />
+    <Compile Include="Mappings\ComentarioFotoMap.cs" />
+    <Compile Include="Mappings\ComentarioVideoMap.cs" />
+    <Compile Include="Mappings\ComputadorMap.cs" />
+    <Compile Include="Mappings\ArquivoMap.cs" />
+    <Compile Include="Mappings\BaseConhecimentoMap.cs" />
+    <Compile Include="Mappings\CertificacaoUsuarioMap.cs" />
+    <Compile Include="Mappings\UsuarioBaseConhecimentoMap.cs" />
+    <Compile Include="Mappings\VagaEmpregoCurriculoMap.cs" />
+    <Compile Include="Mappings\VagaEmpregoMap.cs" />
+    <Compile Include="Mappings\TopicoBaseConhecimentoMap.cs" />
+    <Compile Include="Mappings\ItemManualColaboradorMap.cs" />
+    <Compile Include="Mappings\TopicoManualColaboradorMap.cs" />
+    <Compile Include="Mappings\ExtensaoArquivoMap.cs" />
+    <Compile Include="Mappings\FuncaoMap.cs" />
+    <Compile Include="Mappings\ReuniaoMap.cs" />
+    <Compile Include="Mappings\SalaMap.cs" />
+    <Compile Include="Mappings\MenuPaginaUsuarioMap.cs" />
+    <Compile Include="Mappings\NoticiaMap.cs" />
+    <Compile Include="Mappings\TipoArquivoMap.cs" />
+    <Compile Include="Mappings\UsuarioMensagemMap.cs" />
+    <Compile Include="Mappings\MensagemMap.cs" />
+    <Compile Include="Mappings\RespostaMap.cs" />
+    <Compile Include="Mappings\PesquisaOpiniaoMap.cs" />
+    <Compile Include="Mappings\VideoMap.cs" />
+    <Compile Include="Mappings\PontoUsuarioMap.cs" />
+    <Compile Include="Mappings\PeriodoMap.cs" />
+    <Compile Include="Mappings\FotoMap.cs" />
+    <Compile Include="Mappings\GaleriaMap.cs" />
+    <Compile Include="Mappings\UsuarioTelefoneMap.cs" />
+    <Compile Include="Mappings\EmpresaSetorMap.cs" />
+    <Compile Include="Mappings\EmpresaTelefoneMap.cs" />
+    <Compile Include="Mappings\EmpresaMap.cs" />
+    <Compile Include="Mappings\TipoEmpresaMap.cs" />
+    <Compile Include="Mappings\MenuPaginaMap.cs" />
+    <Compile Include="Mappings\PerfilAcessoMap.cs" />
+    <Compile Include="Mappings\UsuarioMap.cs" />
+    <Compile Include="Mappings\EstadoMap.cs" />
+    <Compile Include="Mappings\SistemaMap.cs" />
+    <Compile Include="Mappings\TemaMap.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Util\Extensions.cs" />
+    <Compile Include="Util\KeyEqualityComparer.cs" />
+    <Compile Include="Util\PropertyComparer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IntranetBettaInformatica.DataAccess\IntranetBettaInformatica.DataAccess.csproj">
+      <Project>{D9B2B6CB-48D8-4BEB-B7EC-B8AD18DDC44C}</Project>
+      <Name>IntranetBettaInformatica.DataAccess</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

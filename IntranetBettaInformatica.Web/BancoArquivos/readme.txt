@@ -1,0 +1,1 @@
+﻿Pasta para armazenar os arquivos do banco de arquivos
